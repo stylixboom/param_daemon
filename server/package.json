@@ -1,0 +1,18 @@
+{
+  "name": "client_id",
+  "version": "0.0.1",
+  "description": "A client registration tool with a UUID, a unique counter will be returned.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Siriwat Kasamwattanarote",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "hashmap": "^2.0.6",
+    "monk": "^3.1.1",
+    "validator": "^5.5.0"
+  }
+}
