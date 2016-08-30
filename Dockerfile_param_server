@@ -8,6 +8,7 @@ MAINTAINER Siriwat K.
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
         && apt-get install -y nodejs
 
-COPY ./param_daemon/server /param_daemon/server/
+COPY ./param_daemon/server/server.js /param_daemon/server/server.js
+COPY ./param_daemon/server/node_modules /param_daemon/server/node_modules/
 
 CMD ["node","/param_daemon/server/server.js","10101"]
