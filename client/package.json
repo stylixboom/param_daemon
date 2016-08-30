@@ -1,5 +1,5 @@
 {
-  "name": "client_id",
+  "name": "param_daemon",
   "version": "0.0.1",
   "description": "A client registration tool with a UUID, a unique counter will be returned.",
   "main": "client.js",
@@ -9,6 +9,7 @@
   "author": "Siriwat Kasamwattanarote",
   "license": "ISC",
   "dependencies": {
+    "dockerode": "^2.3.0",
     "node-uuid": "^1.4.7",
     "validator": "^5.5.0"
   }
