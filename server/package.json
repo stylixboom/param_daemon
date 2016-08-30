@@ -1,5 +1,5 @@
 {
-  "name": "client_id",
+  "name": "param_daemon",
   "version": "0.0.1",
   "description": "A client registration tool with a UUID, a unique counter will be returned.",
   "main": "server.js",
@@ -12,7 +12,8 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "hashmap": "^2.0.6",
-    "monk": "^3.1.1",
+    "monk": "^3.1.2",
+    "ping": "^0.1.10",
     "validator": "^5.5.0"
   }
 }
