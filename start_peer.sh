@@ -6,18 +6,24 @@
 # Created: 4 August 2016
 # # # # # # # # # # # # # # # # # # # #
 
-deamon_ip=$1
-deamon_port=$2
+daemon_ip=$1
+daemon_port=$2
 
-if [ -z "$deamon_ip" ]
+if [ -z "$daemon_ip" ]
 	then
-	deamon_ip=10.128.0.215
+	daemon_ip=10.128.0.215
 fi
 
-if [ -z "$deamon_port" ]
+if [ -z "$daemon_port" ]
 	then
-	deamon_port=10101
+	daemon_port=10101
 fi
 
-node /param_daemon/client/client.js ${deamon_ip} ${deamon_port};
-peer node start;
+# Test param
+node /param_daemon/client/client.js ${daemon_ip} ${daemon_port} > /ENV || (echo "Failed"; exit)
+cat /ENV
+# Eval param
+eval $(cat /ENV) &&
+# Node start
+(peer node start &
+node /param_daemon/client/send_heartbeat.js ${daemon_ip} ${daemon_port})
