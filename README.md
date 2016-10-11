@@ -11,7 +11,7 @@ This project aims to bridge this gap at the moment. By trying to be an inter-ope
 
 Requirements
 --------
-1. Hyperledger/Fabric with parameter daemon [Dockerfiles!](../docker_hyperledger)
+1. Hyperledger/Fabric with parameter daemon [Dockerfiles!](../../../docker_hyperledger)
 2. Docker 1.12.1
 3. Weave (https://www.weave.works/install-weave-net)
 
