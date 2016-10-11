@@ -17,10 +17,11 @@ Hyram.prototype.gen = function (node_info) {
     var env_result = "export";
 
     // Const
-    var port_rest = 5000;
-    var port_cli = 30304;
-    var port_grpc = 30303;
-    var port_validator = 31315;
+    var port_rest = 7050;
+    var port_grpc = 7051;
+    var port_cli = 7052;
+    var port_validator_events = 7053;
+    var port_member = 7054;
 
     // Root discovery (append here if not a root node)
     if (node_info.active_node != "") {
@@ -61,13 +62,13 @@ Hyram.prototype.gen = function (node_info) {
             case "validator":
                 env_result += " CORE_REST_ENABLED=false" +
                     " CORE_PEER_VALIDATOR_ENABLED=true" +
-                    " CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:" + port_validator;
+                    " CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:" + port_validator_events;
                 break;
             case "mixed":
                 env_result += " CORE_REST_ENABLED=true" +
                     " CORE_REST_ADDRESS=0.0.0.0:" + port_rest +
                     " CORE_PEER_VALIDATOR_ENABLED=true" +
-                    " CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:" + port_validator;
+                    " CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:" + port_validator_events;
                 break;
             default:
                 console.log("Error: Incorrect role specified [" + node_info.role + "]");
@@ -111,7 +112,7 @@ What we need to generate?
 OK - PORT_REST="5000"
 OK - PORT_CLI="30304"
 OK - PORT_GRPC="30303"
-OK - PORT_VALIDATOR="31315"
+OK - port_validator_events="31315"
 OK - local_address=`hostname -i`
 OK if (root)
     -e CORE_PEER_DISCOVERY_ROOTNODE=${node - 1 (previous node)}:${PORT_GRPC} \
@@ -134,13 +135,13 @@ if (rest)
 if (validator)
     -e CORE_REST_ENABLED=false \
     -e CORE_PEER_VALIDATOR_ENABLED=true \
-    -e CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:${PORT_VALIDATOR}
+    -e CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:${port_validator_events}
 
 if (mixed)
     -e CORE_REST_ENABLED=true \
     -e CORE_REST_ADDRESS=0.0.0.0:${PORT_REST} \
     -e CORE_PEER_VALIDATOR_ENABLED=true \
-    -e CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:${PORT_VALIDATOR}
+    -e CORE_PEER_VALIDATOR_EVENTS_ADDRESS=0.0.0.0:${port_validator_events}
 
 if (noops)
     -e CORE_PEER_VALIDATOR_CONSENSUS_PLUGIN=noops \
