@@ -1,4 +1,4 @@
-Param daemon for Hyperledger under Docker Swarm
+Param daemon for Hyperledger/Fabric under Docker Swarm
 ===================
 
 Building a Hyperledger/Fabric infrastructure under a scalable environment like Docker swarm has several problems including the parameter setup for each individual node and connectivity issue between validating peer and its attaching chaincode when running under the swarm hood.
@@ -11,7 +11,7 @@ This project aims to bridge this gap at the moment. By trying to be an inter-ope
 
 Requirements
 --------
-1. Hyperledger/Fabric with parameter daemon (https://github.com/stylixboom/docker_hyperledger)
+1. Hyperledger/Fabric with parameter daemon [Dockerfiles!](../docker_hyperledger)
 2. Docker 1.12.1
 3. Weave (https://www.weave.works/install-weave-net)
 
